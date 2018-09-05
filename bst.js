@@ -9,7 +9,7 @@ class BinarySearchTree {
   
   insert(key, value) {
     //if the tree is empty then this key being inserted is the root node of the tree
-    if (this.key == null) {
+    if (this.key === null) {
       this.key = key;
       this.value = value;
     }
@@ -23,7 +23,7 @@ class BinarySearchTree {
       //meaning that if the `left` pointer is empty 
       //then we can just instantiate and insert the new node 
       //as the left child of that node, passing `this` as the parent.  
-      if (this.left == null) {
+      if (this.left === null) {
         this.left = new BinarySearchTree(key, value, this);
       }
       //if the node has an existing left child, 
@@ -36,7 +36,7 @@ class BinarySearchTree {
     //Similarly, if the new key is greater than the node's key 
     //then you do the same thing, but on the right-hand side.
     else {
-      if (this.right == null) {
+      if (this.right === null) {
         this.right = new BinarySearchTree(key, value, this);
       }
       else {
@@ -47,7 +47,7 @@ class BinarySearchTree {
 
   find(key) {
     //if the item is found at the root then return that value
-    if (this.key == key) {
+    if (this.key === key) {
       return this.value;
     }
     //if the item you are looking for is less than the root 
@@ -66,14 +66,14 @@ class BinarySearchTree {
     else if (key > this.key && this.right) {
       return this.right.find(key);
     }
-    //You have search the treen and the item is not in the tree
+    //You have search the tree and the item is not in the tree
     else {
       throw new Error('Key Error');
     }
   }
 
   remove(key) {
-    if (this.key == key) {
+    if (this.key === key) {
       if (this.left && this.right) {
         const successor = this.right._findMin();
         this.key = successor.key;
