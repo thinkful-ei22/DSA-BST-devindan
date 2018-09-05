@@ -72,7 +72,7 @@ class BinarySearchTree {
     }
   }
 
-  findDepth(depth = 0){
+  findDepth(depth = 1){
     let leftDepth = 0;
     let rightDepth = 0;
 
