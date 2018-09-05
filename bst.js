@@ -132,6 +132,19 @@ class BinarySearchTree {
     }
   }
 
+  isBalanced(depth = 1){
+    let leftDepth = 1;
+    let rightDepth = 1;
+
+    if(this.left){
+      leftDepth = this.left.findDepth(depth+1);
+    }
+    if(this.right){
+      rightDepth = this.right.findDepth(depth+1);
+    }
+    
+    return Math.abs(leftDepth - rightDepth) <= 1;
+  }
 
   _getRightMostNode(){
     let node = this;
@@ -141,7 +154,6 @@ class BinarySearchTree {
 
     return node;
   }
-  
 
   _getSizeUpToThree(size = 0){
     if(this === null){
