@@ -13,6 +13,8 @@ function main(){
   bst.insert(5);
   bst.insert(7);
   console.log(bst);
+
+  console.log('Depth: ', bst.findDepth());
 }
 
 main();

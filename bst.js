@@ -72,6 +72,24 @@ class BinarySearchTree {
     }
   }
 
+  findDepth(depth = 0){
+    let leftDepth = 0;
+    let rightDepth = 0;
+
+    if(!this.left && !this.right){
+      return depth;
+    }
+
+    if(this.left){
+      leftDepth = this.left.findDepth(depth+1);
+    }
+    if(this.right){
+      rightDepth = this.right.findDepth(depth+1);
+    }
+
+    return Math.max(leftDepth, rightDepth);
+  }
+
   remove(key) {
     if (this.key === key) {
       if (this.left && this.right) {
