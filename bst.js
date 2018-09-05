@@ -90,6 +90,29 @@ class BinarySearchTree {
     return Math.max(leftDepth, rightDepth);
   }
 
+  isBst(){
+    if(!this.left && !this.right){
+      return true;
+    }
+    if(this.left){
+      if(this.key < this.left.key) {
+        return false;
+      }
+      if(!this.left.isBst()){
+        return false;
+      }
+    }
+    if (this.right) {
+      if(this.key > this.right.key) {
+        return false;
+      }
+      if(!this.right.isBst()){
+        return false;
+      }
+    }
+    return true;  
+  }
+
   remove(key) {
     if (this.key === key) {
       if (this.left && this.right) {

@@ -13,8 +13,10 @@ function main(){
   bst.insert(5);
   bst.insert(7);
   console.log(bst);
+  bst.right.right.key = 0;
 
   console.log('Depth: ', bst.findDepth());
+  console.log('isBST: ', bst.isBst());
 }
 
 main();
