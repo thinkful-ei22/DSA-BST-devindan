@@ -13,10 +13,19 @@ function main(){
   bst.insert(5);
   bst.insert(7);
   console.log(bst);
-  bst.right.right.key = 0;
-
   console.log('Depth: ', bst.findDepth());
-  console.log('isBST: ', bst.isBst());
+  
+  // bst.right.right.key = 0;
+  // console.log('isBST: ', bst.isBst());
+
+  console.log('Third largest: ', bst.thirdLargest());
+  bst.insert(12);
+  console.log('Third largest: ', bst.thirdLargest());
+  bst.insert(11);
+  // bst.insert(15);
+  console.log('Third largest: ', bst.thirdLargest());
+
+  
 }
 
 main();

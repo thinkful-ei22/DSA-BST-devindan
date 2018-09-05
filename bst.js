@@ -113,6 +113,56 @@ class BinarySearchTree {
     return true;  
   }
 
+  thirdLargest(){
+    //check size first
+    if(1 + this.left._getSizeUpToThree() + this.right._getSizeUpToThree() < 3){
+      throw new Error('BST does not have three nodes');
+    }
+
+    let startNode = this._getRightMostNode();
+    while(startNode.left){
+      startNode = startNode.left._getRightMostNode();
+    }
+
+    if(startNode.parent.left && startNode.parent.left !== startNode){
+      return startNode.parent.left._getRightMostNode().key;
+    }
+    else {
+      return startNode.parent.parent.key;
+    }
+  }
+
+
+  _getRightMostNode(){
+    let node = this;
+    while(node.right){
+      node = node.right;
+    }
+
+    return node;
+  }
+  
+
+  _getSizeUpToThree(size = 0){
+    if(this === null){
+      return 0;
+    }
+    
+    if(size === 3){
+      return 3;
+    }
+
+    let leftSize = 0;
+    let rightSize = 0;
+
+    if(this.left)
+      this.left._getSizeUpToThree(size+1);
+    if(this.right)
+      this.right._getSizeUpToThree(size+1);
+
+    return leftSize + rightSize + 1;
+  }
+
   remove(key) {
     if (this.key === key) {
       if (this.left && this.right) {
